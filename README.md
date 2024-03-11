@@ -1,4 +1,4 @@
-# \[Group name\]
+# Group Cool
 
 **Group members:**
 - Jacob Guldager (zdj807)
