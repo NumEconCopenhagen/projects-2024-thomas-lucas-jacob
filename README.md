@@ -1,9 +1,9 @@
 # \[Group name\]
 
 **Group members:**
-- A
-- B
-- C
+- Jacob Guldager (zdj807)
+- Thomas Rundager (sgp378)
+- Lucas Jantunen (zdg763)
 
 This repository contains  
 1. Inaugural project. 
