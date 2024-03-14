@@ -8,7 +8,7 @@ class ExchangeEconomyClass:
 
         par = self.par = SimpleNamespace()
 
-        # a. preferences
+        # a. preferences nej vi mangler jantunen
         par.alpha = 1/3
         par.beta = 2/3
 
