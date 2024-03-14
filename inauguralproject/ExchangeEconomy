@@ -13,18 +13,23 @@ class ExchangeEconomyClass:
         # b. endowments
         par.w1A = 0.8
         par.w2A = 0.3
+        par.w1B = 1-par.w1A
+        par.w2B = 1-par.w2B
 
     def utility_A(self,x1A,x2A):
-        pass
+        par = self.par
+        return x1A**par.alpha*x2A**(1-par.alpha)
 
     def utility_B(self,x1B,x2B):
-        pass
+        par = self.par
+        return x1B**par.beta*x2B**(1-par.beta)
 
     def demand_A(self,p1):
-        pass
+        I = p1*par.w1A + 1 * par.w1B 
+        return alpha*(I)/p1, (1-alpha)* I/p1
 
     def demand_B(self,p1):
-        pass
+        return beta*(w1B+w2B)/p1
 
     def check_market_clearing(self,p1):
 
@@ -36,4 +41,6 @@ class ExchangeEconomyClass:
         eps1 = x1A-par.w1A + x1B-(1-par.w1A)
         eps2 = x2A-par.w2A + x2B-(1-par.w2A)
 
-        return eps1,eps2
+        return eps1,eps2 
+
+print(utility_B(self,1,2))
