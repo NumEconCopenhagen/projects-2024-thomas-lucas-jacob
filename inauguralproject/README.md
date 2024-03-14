@@ -9,4 +9,4 @@ Hej
 Halli Halløj en mand i dametøj
 
 
-Hallo hallo
+Hallo hallo hello hello
