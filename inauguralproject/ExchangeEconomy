@@ -15,7 +15,7 @@ class ExchangeEconomyClass:
         par.w2A = 0.3
 
     def utility_A(self,x1A,x2A):
-        pass
+        # halli halløj en mand i dametøj
 
     def utility_B(self,x1B,x2B):
         pass
