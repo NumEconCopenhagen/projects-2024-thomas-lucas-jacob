@@ -52,17 +52,17 @@ class ExchangeEconomyClass:
     
     def find_market_clearing(self):
 
-        # 1. Defining p1 - you can adjust the price list to be more detailed
-        detail_level = 75
-        p1 = [(0.5 + 2*i/detail_level) for i in range(detail_level + 1)]
+        # Defining p1
+        price_scope = 75
+        p1 = [(0.5 + 2*i/price_scope) for i in range(price_scope + 1)]
 
-        # 2. Calculate the errors
+        #Estimating the errors
         errors = [self.check_market_clearing(x) for x in p1]
         eps1 = [x[0] for x in errors]
         eps2 = [x[1] for x in errors]
 
-        # 3. Finding the index of the value that is closest to zero in the eps1 list
-        index_closest_to_zero, closest_to_zero = min(enumerate(eps1), key=lambda x: abs(x[1]))
+        #Minimizing the error rate
+        index_closest_to_zero, error_min = min(enumerate(eps1), key=lambda x: abs(x[1]))
 
         # 4. Getting the price where eps1 is closest to zero - the market clearing price
         price = p1[index_closest_to_zero]
@@ -71,6 +71,56 @@ class ExchangeEconomyClass:
         (x1A, x2A) = self.demand_A(price)
 
         return (price, x1A, x2A)
+    
+#Printing the graph for pareto optimizing allocations. Consider changing this part to jupiter file
+    
+    import matplotlib.pyplot as plt
+plt.rcParams.update({"axes.grid":True,"grid.color":"black","grid.alpha":"0.25","grid.linestyle":"--"})
+plt.rcParams.update({'font.size': 14})
+
+%load_ext autoreload
+%autoreload 2
+
+
+from ExchangeEconomy import ExchangeEconomyClass
+
+par = model.par
+
+# a. total endowment
+w1bar = 1.0
+w2bar = 1.0
+
+# b. figure set up
+fig = plt.figure(frameon=False,figsize=(6,6), dpi=100)
+ax_A = fig.add_subplot(1, 1, 1)
+
+ax_A.set_xlabel("$x_1^A$")
+ax_A.set_ylabel("$x_2^A$")
+
+temp = ax_A.twinx()
+temp.set_ylabel("$x_2^B$")
+ax_B = temp.twiny()
+ax_B.set_xlabel("$x_1^B$")
+ax_B.invert_xaxis()
+ax_B.invert_yaxis()
+
+# A
+ax_A.scatter(par.w1A,par.w2A,marker='s',color='black',label='endowment')
+
+# limits
+ax_A.plot([0,w1bar],[0,0],lw=2,color='black')
+ax_A.plot([0,w1bar],[w2bar,w2bar],lw=2,color='black')
+ax_A.plot([0,0],[0,w2bar],lw=2,color='black')
+ax_A.plot([w1bar,w1bar],[0,w2bar],lw=2,color='black')
+
+ax_A.set_xlim([-0.1, w1bar + 0.1])
+ax_A.set_ylim([-0.1, w2bar + 0.1])    
+ax_B.set_xlim([w1bar + 0.1, -0.1])
+ax_B.set_ylim([w2bar + 0.1, -0.1])
+
+ax_A.legend(frameon=True,loc='upper right',bbox_to_anchor=(1.6,1.0));
+
+print(plot)
     
 
 
