@@ -71,8 +71,10 @@ class ExchangeEconomyClass:
 
         return (price, x1A, x2A)
     
-    
-    
+    # defining the utility function for A as a function of the price of good 1
+    def utility_A2(self,p1):
+        I = p1 * par.w1A + 1 * par.w2A
+        return (par.alpha*(I)/p1)**par.alpha * ((1-par.alpha)* I)**(1-par.alpha)
     
 #Printing the graph for pareto optimizing allocations. Consider changing this part to jupiter file
     
