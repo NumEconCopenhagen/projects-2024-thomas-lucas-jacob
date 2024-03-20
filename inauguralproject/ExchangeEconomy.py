@@ -1,5 +1,5 @@
 from types import SimpleNamespace
-
+#Test test
 class ExchangeEconomyClass:
 
     def __init__(self):
@@ -14,7 +14,7 @@ class ExchangeEconomyClass:
         par.w1A = 0.8
         par.w2A = 0.3
         par.w1B = 1-par.w1A
-        par.w2B = 1-par.w2A
+        par.w2B = 1-par.w1A
 
     def utility_A(self, x1A, x2A):
         par = self.par = SimpleNamespace()
