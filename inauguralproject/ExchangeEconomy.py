@@ -72,6 +72,7 @@ class ExchangeEconomyClass:
     
     
     
-
+    
+#Printing the graph for pareto optimizing allocations. Consider changing this part to jupiter file
     
     
