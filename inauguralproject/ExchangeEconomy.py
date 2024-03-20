@@ -17,7 +17,7 @@ class ExchangeEconomyClass:
         par.w2B = 1-par.w1A
 
     def utility_A(self, x1A, x2A):
-        par = self.par = SimpleNamespace()
+        par = self.par
         return x1A**par.alpha * x2A**(1-par.alpha)
 
     def utility_B(self, x1B, x2B):
@@ -35,6 +35,7 @@ class ExchangeEconomyClass:
         par = self.par
         I = p1 * par.w1B + 1 * par.w2B 
         return par.beta * I/p1, (1-par.beta) * I
+
 
     def check_market_clearing(self,p1):
 
