@@ -1,7 +1,5 @@
 from types import SimpleNamespace
 
-# Har vi det hele?
-
 class ExchangeEconomyClass:
 
     def __init__(self):
