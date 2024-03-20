@@ -17,7 +17,7 @@ class ExchangeEconomyClass:
         par.w2B = 1-par.w1A
 
     def utility_A(self, x1A, x2A):
-        par = self.par
+        par = self.par = SimpleNamespace()
         return x1A**par.alpha * x2A**(1-par.alpha)
 
     def utility_B(self, x1B, x2B):
