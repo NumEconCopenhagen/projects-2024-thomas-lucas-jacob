@@ -28,7 +28,7 @@ class ExchangeEconomyClass:
     def demand_A(self, p1):
         par = self.par
         I = p1 * par.w1A + 1 * par.w2A 
-        return par.alpha*(I)/p1, (1-par.alpha)* I
+        return par.alpha*(I)/p1, (1-par.alpha)* (I)
 
     def demand_A1(self, p1):
         par = self.par
@@ -38,12 +38,12 @@ class ExchangeEconomyClass:
     def demand_A2(self, p1):
         par = self.par
         I = p1 * par.w1A + 1 * par.w2A 
-        return (1-par.alpha)* I
+        return (1-par.alpha)* (I)
 
     def demand_B(self,p1):
         par = self.par
         I = p1 * par.w1B + 1 * par.w2B 
-        return par.beta * I/p1, (1-par.beta) * I
+        return par.beta * (I)/p1, (1-par.beta) * (I)
 
     def demand_B1(self, p1):
         par = self.par
@@ -53,7 +53,7 @@ class ExchangeEconomyClass:
     def demand_B2(self, p1):
         par = self.par
         I = p1 * par.w1B + 1 * par.w2B 
-        return (1-par.beta)* I
+        return (1-par.beta)* (I)
 
     def check_market_clearing(self,p1):
 
