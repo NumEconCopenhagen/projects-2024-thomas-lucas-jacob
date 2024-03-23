@@ -1,5 +1,6 @@
 from types import SimpleNamespace
-#Test test
+import numpy as np
+
 class ExchangeEconomyClass:
 
     def __init__(self):
@@ -13,8 +14,8 @@ class ExchangeEconomyClass:
         # b. endowments
         par.w1A = 0.8
         par.w2A = 0.3
-        par.w1B = 1-par.w1A
-        par.w2B = 1-par.w1A
+        par.w1B = 1 - par.w1A
+        par.w2B = 1 - par.w2A
 
     def utility_A(self, x1A, x2A):
         par = self.par
@@ -95,7 +96,5 @@ class ExchangeEconomyClass:
         I = p_1 * par.w1A + 1 * par.w2A
         return (par.alpha*(I)/p_1)**par.alpha * ((1-par.alpha)* I)**(1-par.alpha)
     
-    
-#Printing the graph for pareto optimizing allocations. Consider changing this part to jupiter file
-    
+
     
