@@ -97,4 +97,4 @@ class ExchangeEconomyClass:
         return (par.alpha*(I)/p_1)**par.alpha * ((1-par.alpha)* I)**(1-par.alpha)
     
 
-    
+  
