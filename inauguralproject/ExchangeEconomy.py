@@ -29,13 +29,31 @@ class ExchangeEconomyClass:
         par = self.par
         I = p1 * par.w1A + 1 * par.w2A 
         return par.alpha*(I)/p1, (1-par.alpha)* I
-        
+
+    def demand_A1(self, p1):
+        par = self.par
+        I = p1 * par.w1A + 1 * par.w2A 
+        return par.alpha*(I)/p1
+
+    def demand_A2(self, p1):
+        par = self.par
+        I = p1 * par.w1A + 1 * par.w2A 
+        return (1-par.alpha)* I
 
     def demand_B(self,p1):
         par = self.par
         I = p1 * par.w1B + 1 * par.w2B 
         return par.beta * I/p1, (1-par.beta) * I
 
+    def demand_B1(self, p1):
+        par = self.par
+        I = p1 * par.w1B + 1 * par.w2B 
+        return par.beta*(I)/p1
+
+    def demand_B2(self, p1):
+        par = self.par
+        I = p1 * par.w1B + 1 * par.w2B 
+        return (1-par.beta)* I
 
     def check_market_clearing(self,p1):
 
@@ -72,10 +90,11 @@ class ExchangeEconomyClass:
         return (price, x1A, x2A)
     
     # defining the utility function for A as a function of the price of good 1
-    def utility_A2(self,p1):
+    def utility_A2(self,p_1):
         par = self.par
-        I = p1 * par.w1A + 1 * par.w2A
-        return (par.alpha*(I)/p1)**par.alpha * ((1-par.alpha)* I)**(1-par.alpha)
+        I = p_1 * par.w1A + 1 * par.w2A
+        return (par.alpha*(I)/p_1)**par.alpha * ((1-par.alpha)* I)**(1-par.alpha)
+    
     
 #Printing the graph for pareto optimizing allocations. Consider changing this part to jupiter file
     
