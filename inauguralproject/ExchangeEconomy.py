@@ -95,6 +95,4 @@ class ExchangeEconomyClass:
         par = self.par
         I = p_1 * par.w1A + 1 * par.w2A
         return (par.alpha*(I)/p_1)**par.alpha * ((1-par.alpha)* I)**(1-par.alpha)
-    
 
-    
