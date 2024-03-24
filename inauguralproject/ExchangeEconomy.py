@@ -51,7 +51,7 @@ class ExchangeEconomyClass:
         I = p1 * par.w1B + 1 * par.w2B 
         return par.beta*(I)/p1
 
-    def p1_at_xB1_eq_null(self, x1B):
+    def p1_at_xB1_eq_w1B(self, x1B):
         par = self.par
         return par.w2B/((x1B/par.beta)-par.w1B)
 
