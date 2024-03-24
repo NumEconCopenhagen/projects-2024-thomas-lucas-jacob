@@ -1,4 +1,5 @@
 # Inaugural project
+by sgp378, zdj807 and LucasJantunen
 
 The point of this this project is to gain the skill to stay calm under preasure when dealing with all the problems associated with GitHubs. This skill is neccesary when joining the labor market after education as working full time is associated with great deal of frustation. 
 
