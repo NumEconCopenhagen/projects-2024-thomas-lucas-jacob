@@ -79,5 +79,5 @@ def moving_avg_quarterly_BNP():
     BNP_quarterly_sorted['INDHOLD'] = pd.to_numeric(BNP_quarterly_sorted['INDHOLD'], errors='coerce')
     # Calculate the rolling mean
     moving_avg_len = 5
-    moving_avg = Q_BNP_rollingavg['INDHOLD'].rolling(window=moving_avg_len).mean()
+    moving_avg = BNP_quarterly_sorted['INDHOLD'].rolling(window=moving_avg_len).mean()
     return moving_avg 
