@@ -44,7 +44,7 @@ def supply_balance_privat():
     params = supply_balance._define_base_params(language= 'en') #defines all parameters in NAN1
     SB1 = supply_balance.get_data(params=params) #creates a dataframe from the supply balance
     SB1_1= SB1[SB1['TID'] >= 1990] #removes data from before 1990
-    SB2=SB1[SB1['PRISENHED']=='2010-prices, chained values, (bill. DKK.)'] #create new DF, filtered for price type = chained prices (2010)
+    SB2=SB1_1[SB1_1['PRISENHED']=='2010-prices, chained values, (bill. DKK.)'] #create new DF, filtered for price type = chained prices (2010)
     supply_balance_privat=SB2[SB2['TRANSAKT'] == 'P.31 Private consumption']  #create new DF, filtered only privat consumption
     del supply_balance_privat['TRANSAKT'] #deletes the TRANSAKT column
     del supply_balance_privat['PRISENHED'] #deletes the PRISENHED column
