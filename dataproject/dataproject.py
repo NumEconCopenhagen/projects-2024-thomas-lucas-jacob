@@ -16,12 +16,10 @@ def supply_balance_DK():
 def quarterly_BNP():
     Q_bnp = DstApi('NKN1')
     params_q = Q_bnp._define_base_params(language= 'en') #defines all parameters in NAN1
-    Q1 = Q_bnp.get_data(params=params_q) #creates a dataframe from the supply balance
-    Q1_1 = Q1[Q1['SÆSON' == 'Seasonally adjusted']]
-    Q2=Q1_1[Q1_1['PRISENHED']=='2010-prices, chained values, (bill. DKK.)'] #create new DF, filtered for price type = chained prices (2010)
+    Q1 = Q_bnp.get_data(params= params_q) #creates a dataframe from the supply balance
+    Q2=Q1[Q1['PRISENHED']=='2010-prices, chained values, (bill. DKK.)'] #create new DF, filtered for price type = chained prices (2010)
     BNP_quarterly=Q2[Q2['TRANSAKT'] == 'B.1*g Gross domestic product']  #create new DF, filtered only BNP
     del BNP_quarterly['TRANSAKT'] #deletes the TRANSAKT column
     del BNP_quarterly['PRISENHED'] #deletes the PRISENHED column
-    del BNP_quarterly['SÆSON']
-
+    #del BNP_quarterly['SÆSON']
     return BNP_quarterly
