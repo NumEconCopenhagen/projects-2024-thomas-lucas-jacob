@@ -7,11 +7,12 @@ def supply_balance_BNP():
     params = supply_balance._define_base_params(language= 'en') #defines all parameters in NAN1
     SB1 = supply_balance.get_data(params=params) #creates a dataframe from the supply balance
     SB1_1= SB1[SB1['TID'] >= 1990] #removes data from before 1990
-    SB2=SB1[SB1['PRISENHED']=='2010-prices, chained values, (bill. DKK.)'] #create new DF, filtered for price type = chained prices (2010)
+    SB2=SB1_1[SB1_1['PRISENHED']=='2010-prices, chained values, (bill. DKK.)'] #create new DF, filtered for price type = chained prices (2010)
     supply_balance_BNP=SB2[SB2['TRANSAKT'] == 'B.1*g Gross domestic product']  #create new DF, filtered only BNP
     del supply_balance_BNP['TRANSAKT'] #deletes the TRANSAKT column
     del supply_balance_BNP['PRISENHED'] #deletes the PRISENHED column
-    return supply_balance_BNP
+    supply_balance_BNP_sorted = supply_balance_BNP.sort_values(by= 'TID')
+    return supply_balance_BNP_sorted
 
 def supply_balance_import():
     supply_balance = DstApi('NAN1') #import NAN1 from DST
