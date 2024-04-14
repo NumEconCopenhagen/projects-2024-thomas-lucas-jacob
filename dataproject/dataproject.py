@@ -13,7 +13,7 @@ def supply_balance_BNP():
     del supply_balance_BNP['PRISENHED'] #deletes the PRISENHED column
     return supply_balance_BNP
 
-def supply_balance_import
+def supply_balance_import():
     supply_balance = DstApi('NAN1') #import NAN1 from DST
     params = supply_balance._define_base_params(language= 'en') #defines all parameters in NAN1
     SB1 = supply_balance.get_data(params=params) #creates a dataframe from the supply balance
@@ -24,7 +24,7 @@ def supply_balance_import
     del supply_balance_import['PRISENHED'] #deletes the PRISENHED column
     return supply_balance_import
 
-def supply_balance_export
+def supply_balance_export():
     supply_balance = DstApi('NAN1') #import NAN1 from DST
     params = supply_balance._define_base_params(language= 'en') #defines all parameters in NAN1
     SB1 = supply_balance.get_data(params=params) #creates a dataframe from the supply balance
@@ -35,7 +35,7 @@ def supply_balance_export
     del supply_balance_export['PRISENHED'] #deletes the PRISENHED column
     return supply_balance_export
 
-def supply_balance_privat
+def supply_balance_privat():
     supply_balance = DstApi('NAN1') #import NAN1 from DST
     params = supply_balance._define_base_params(language= 'en') #defines all parameters in NAN1
     SB1 = supply_balance.get_data(params=params) #creates a dataframe from the supply balance
