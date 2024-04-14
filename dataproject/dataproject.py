@@ -76,3 +76,39 @@ def quarterly_BNP_for_mov_avg():
     del BNP_quarterly_1['SÆSON'] #deletes the SÆSON column
     BNP_quarterly_sorted_1 = BNP_quarterly_1.sort_values(by= 'TID') #we sort the dataframe by year
     return BNP_quarterly_sorted_1
+
+####GRAPHS
+
+def line_plot_with_labels(data, title, xlabel, ylabel, xName, yName, color="orange"):
+    """
+    Creates a line plot with specified labels and attributes.
+
+    Parameters:
+    data (DataFrame): A pandas DataFrame containing the data.
+    title (str): The title of the plot.
+    xlabel (str): The label for the x-axis.
+    ylabel (str): The label for the y-axis.
+    xName (str): The name of the column representing the x-axis data.
+    yName (str): The name of the column representing the y-axis data.
+    color (str, optional): The color of the line plot. Defaults to "orange".
+
+    Returns:
+    matplotlib.pyplot.figure: A matplotlib figure object containing the plot.
+    """    
+    # Creating a seaborn plot
+    plt.figure(figsize=(6, 4))
+    sns.lineplot(data=data, x=xName, y=yName, linewidth=1.5, color=color, marker='o', markersize=5)
+
+    # Adding title and labels
+    plt.title(title, fontsize=14)
+    plt.xlabel(xlabel, fontsize=11)
+    plt.ylabel(ylabel, fontsize=11)
+
+    # Adding grid and annotations
+    plt.grid(True, linestyle='--', alpha=0.7)
+
+    # Adding a custom color palette
+    custom_palette = sns.color_palette("husl", 5)
+    sns.set_palette(custom_palette)
+
+    return plt
