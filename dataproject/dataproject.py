@@ -55,5 +55,5 @@ def quarterly_BNP():
     BNP_quarterly=Q3[Q3['TRANSAKT'] == 'B.1*g Gross domestic product']  #create new DF, filtered only BNP
     del BNP_quarterly['TRANSAKT'] #deletes the TRANSAKT column
     del BNP_quarterly['PRISENHED'] #deletes the PRISENHED column
-    del BNP_quarterly['SÆSON']
+    del BNP_quarterly['SÆSON'] #deletes the SÆSON column
     return BNP_quarterly
