@@ -2,7 +2,7 @@
 import pandas_datareader # install with `pip install pandas-datareader`
 from dstapi import DstApi # install with `pip install git+https://github.com/alemartinello/dstapi`
 
-def supply_balance_DK:
+def supply_balance_DK():
     supply_balance = DstApi('NAN1') #import NAN1 from DST
     params = supply_balance._define_base_params(language= 'en') #defines all parameters in NAN1
     SB1 = supply_balance.get_data(params=params) #creates a dataframe from the supply balance
@@ -13,7 +13,7 @@ def supply_balance_DK:
     del supply_balance_BNP['PRISENHED'] #deletes the PRISENHED column
     return supply_balance_BNP
 
-def quartly_BNP:
+def quartly_BNP():
     Q_bnp = DstApi('NKN1')
     params_q = Q_bnp._define_base_params(language= 'en') #defines all parameters in NAN1
     Q1 = Q_bnp.get_data(params=params_q) #creates a dataframe from the supply balance
