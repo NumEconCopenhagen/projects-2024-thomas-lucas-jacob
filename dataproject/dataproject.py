@@ -1,4 +1,5 @@
 # installing API reader, that will allow to load data from DST.
+import pandas as pd
 import pandas_datareader # install with `pip install pandas-datareader`
 from dstapi import DstApi # install with `pip install git+https://github.com/alemartinello/dstapi`
 
