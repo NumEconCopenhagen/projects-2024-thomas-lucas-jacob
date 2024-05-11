@@ -24,19 +24,19 @@ class Malthus():
 
     def Bt(self, Lt):
         par = self.par
-        Yt = Yt(Lt)
+        Yt = self.Yt(Lt)
         return (par.bnul + par.b* Yt)* Lt
     
     def Dt(self, Lt):
         par = self.par
-        Yt = Yt(Lt)
+        Yt = self.Yt(Lt)
         return (par.dnul + par.d* Yt)* Lt
 
     def Lt1(self, Lt):
         par = self.par
-        Yt = par.anul-par.a* Lt
-        Bt= (par.bnul + par.b* Yt)* Lt
-        Dt= (par.dnul + par.d* Yt)* Lt
+        Yt= self.Yt(Lt)
+        Bt= self.Bt(Lt)
+        Dt= self.Dt(Lt)
         L= Lt + Bt + Dt
         return L
 
