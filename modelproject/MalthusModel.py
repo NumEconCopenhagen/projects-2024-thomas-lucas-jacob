@@ -1,5 +1,3 @@
-
-
 ##### MALTUS MODEL
 
 from scipy import optimize
