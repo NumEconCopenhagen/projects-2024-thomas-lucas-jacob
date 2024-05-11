@@ -46,8 +46,8 @@ class Malthus_cobbd():
     def __init__(self):
 
         par = self.par = SimpleNamespace()
-        par.alpha = 0.15
-        par.A = 1
+        par.alpha = 0.5
+        par.A = 1.5
         par.X = 1
         par.mu = 0.1
     
