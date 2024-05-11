@@ -42,7 +42,7 @@ class Malthus():
 
 
 class Malthus_cobbd():
-    
+
     def __init__(self):
 
         par = self.par = SimpleNamespace()
