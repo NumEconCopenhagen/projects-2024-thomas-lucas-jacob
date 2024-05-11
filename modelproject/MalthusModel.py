@@ -12,14 +12,14 @@ class Malthus():
 
         par = self.par = SimpleNamespace()
         par.alpha = 0.5
-        par.A = 0.2
-        par.X = 0.1
+        par.A = 1
+        par.X = 1
         par.anul = 0.5
-        par.a = 0.05 
-        par.bnul = 1 
-        par.b = 1
-        par.dnul = 0.1 
-        par.d = 0.1
+        par.a = 0.5 
+        par.bnul = 0.5
+        par.b = 0.5
+        par.dnul = 2.5 
+        par.d = 2.5
     
     def Yt(self, Lt):
         par = self.par
