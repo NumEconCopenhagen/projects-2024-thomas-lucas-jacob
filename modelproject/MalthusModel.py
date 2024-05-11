@@ -41,8 +41,30 @@ class Malthus():
         return L, Yt, Bt, Dt
 
 
+class Malthus_cobbd():
+    def __init__(self):
 
+        par = self.par = SimpleNamespace()
+        par.alpha = 0.15
+        par.A = 1
+        par.X = 1
+        par.mu = 0.1
+    
+    def Yt(self, Lt):
+        par=self.par
+        return ((par.A*par.X)**(1- par.alpha))*(Lt**par.alpha)
+    
+    def yt(self, Lt):
+        Yt = self.Yt(Lt)
+        return Yt/Lt
 
+    def nt(eta):
+        yt = self.yt(Lt)
+        return eta * yt
+    
+    def Lt1(self, Lt):
+        nt = self.nt(Lt)
+        return nt * Lt (1 - par.mu) * Lt
 
 
 
