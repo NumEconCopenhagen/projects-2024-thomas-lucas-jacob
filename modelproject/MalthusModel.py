@@ -11,7 +11,7 @@ class Malthus():
     def __init__(self):
 
         par = self.par = SimpleNamespace()
-        par.alpha = 0.5
+        par.alpha = 0.15
         par.A = 1
         par.X = 1
         par.anul = 0.5
