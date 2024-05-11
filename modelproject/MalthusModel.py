@@ -11,6 +11,9 @@ class Malthus():
     def __init__(self):
 
         par = self.par = SimpleNamespace()
+        par.alpha = 0.5
+        par.A = 0.2
+        par.X = 0.1
         par.anul = 0.5
         par.a = 0.05 
         par.bnul = 1 
@@ -20,7 +23,7 @@ class Malthus():
     
     def Yt(self, Lt):
         par = self.par
-        return par.anul-par.a* Lt
+        return (par.A*par.X)**(1-par.alpha)*L**par.alpha
 
     def Bt(self, Lt):
         par = self.par
@@ -30,7 +33,7 @@ class Malthus():
     def Dt(self, Lt):
         par = self.par
         Yt = self.Yt(Lt)
-        return (par.dnul + par.d* Yt)* Lt
+        return (par.dnul - par.d* Yt)* Lt
 
     def Lt1(self, Lt):
         par = self.par
