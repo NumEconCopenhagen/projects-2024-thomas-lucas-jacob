@@ -68,10 +68,9 @@ class Malthus_cobbd():
         nt = self.nt(eta, Lt)
         return nt * Lt + (1 - par.mu) * Lt
 
-    def ss(self, Lt ,eta):
-        steadystate = sm.Eq(Lt, self.Lt1(Lt, eta))
-        ss = sm.solve(steadystate)
-        return ss
+    def ss_conditions(self, vars, eta):
+        L, Y = vars
+        return [self.Yt(L) - Y, self.Lt1(L, eta) - L]
 
 
 
