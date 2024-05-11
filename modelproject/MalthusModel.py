@@ -8,30 +8,35 @@ import sympy as sm
 import numpy as np
 
 
-class Malthus:
+class Malthus():
 
     def __init__(self):
 
         par = self.par = SimpleNamespace()
         par.alpha = 0.5
-        par.r = 0.05
-        par.LO = 1
+        par.r = 0.05 
+        par.LO = 1 
+        par.D = 1
+        par.p = 0.1 
     
-    def Y(self, X, A, L):
+    def Y_t(self, X, A, L):
         par = self.par
 
         return (A*X)**(1-par.alpha)*L**par.alpha
 
-    def y(self, X, A, L):
+    def y_t(self, Y, L):
         par = self.par
         
-        return (A*X/L)**par.alpha
+        return Y / L
+    
+    def L_t(self_)
 
-    def L(self, t):
+    def Lt1(self, t):
         par = self.par
         t = np.arrange(0, 1000, 1)
-        return par.LO*exp(par.r*t)*y 
+        return L_t*y_t*par.p - par.D*L_t
         
+    
 
 
 
