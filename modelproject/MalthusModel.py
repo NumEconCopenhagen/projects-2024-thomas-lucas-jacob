@@ -6,39 +6,39 @@ import sympy as sm
 import numpy as np
 
 
-class Malthus():
+#class Malthus():
 
-    def __init__(self):
+    #def __init__(self):
 
-        par = self.par = SimpleNamespace()
-        par.anul = 2.5
-        par.a = 0.05 
-        par.bnul = 0.5
-        par.b = 0.5
-        par.dnul = 2.5 
-        par.d = 2.5
+        #par = self.par = SimpleNamespace()
+        #par.anul = 2.5
+        #par.a = 0.05 
+        #par.bnul = 0.5
+        #par.b = 0.5
+        #par.dnul = 2.5 
+        #par.d = 2.5
     
-    def Yt(self, Lt):
-        par = self.par
-        return par.anul - par.a *Lt
+    #def Yt(self, Lt):
+        #par = self.par
+        #return par.anul - par.a *Lt
 
-    def Bt(self, Lt):
-        par = self.par
-        Yt = self.Yt(Lt)
-        return (par.bnul + par.b* Yt)* Lt
+    #def Bt(self, Lt):
+        #par = self.par
+        #Yt = self.Yt(Lt)
+        #return (par.bnul + par.b* Yt)* Lt
     
-    def Dt(self, Lt):
-        par = self.par
-        Yt = self.Yt(Lt)
-        return (par.dnul - par.d* Yt)* Lt
+    #def Dt(self, Lt):
+        #par = self.par
+        #Yt = self.Yt(Lt)
+        #return (par.dnul - par.d* Yt)* Lt
 
-    def Lt1(self, Lt):
-        par = self.par
-        Yt= self.Yt(Lt)
-        Bt= self.Bt(Lt)
-        Dt= self.Dt(Lt)
-        L= Lt + Bt - Dt
-        return L, Yt, Bt, Dt
+    #def Lt1(self, Lt):
+        #par = self.par
+        #Yt= self.Yt(Lt)
+        #Bt= self.Bt(Lt)
+        #Dt= self.Dt(Lt)
+        #L= Lt + Bt - Dt
+        #return L, Yt, Bt, Dt
 
 
 class Malthus_cobbd():
