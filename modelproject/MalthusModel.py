@@ -33,7 +33,7 @@ class Malthus():
 
         return (par.dnul + par.d1* Yt)* Lt
 
-    def Lt1(self, Yt, Bt, Dt, Lt):
+    def Lt1(self, Lt):
         par = self.par
         Yt = Yt(self, Lt)
         Bt= Bt(self, Yt, Lt)
