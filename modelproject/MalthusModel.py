@@ -30,13 +30,13 @@ class Malthus():
     def Dt(self, Lt):
         par = self.par
         Yt = Yt(Lt)
-        return (par.dnul + par.d1* Yt)* Lt
+        return (par.dnul + par.d* Yt)* Lt
 
     def Lt1(self, Lt):
         par = self.par
         Yt = par.anul-par.a* Lt
         Bt= (par.bnul + par.b* Yt)* Lt
-        Dt= (par.dnul + par.d1* Yt)* Lt
+        Dt= (par.dnul + par.d* Yt)* Lt
         L= Lt + Bt + Dt
         return L
 
