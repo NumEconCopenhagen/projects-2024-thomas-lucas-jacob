@@ -23,7 +23,7 @@ class Malthus():
     
     def Yt(self, Lt):
         par = self.par
-        return (par.A*par.X)**(1-par.alpha)*L**par.alpha
+        return (par.A*par.X)**(1-par.alpha)*Lt**par.alpha
 
     def Bt(self, Lt):
         par = self.par
