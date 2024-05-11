@@ -37,7 +37,8 @@ class Malthus():
         Yt = par.anul-par.a* Lt
         Bt= (par.bnul + par.b* Yt)* Lt
         Dt= (par.dnul + par.d1* Yt)* Lt
-        return Lt + Bt + Dt
+        L= Lt + Bt + Dt
+        return L
 
 
 
