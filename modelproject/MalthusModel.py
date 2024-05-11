@@ -58,11 +58,12 @@ class Malthus_cobbd():
         Yt = self.Yt(Lt)
         return Yt/Lt
 
-    def nt(eta):
+    def nt(self,eta, Lt):
         yt = self.yt(Lt)
         return eta * yt
     
     def Lt1(self, Lt):
+        par=self.par
         nt = self.nt(Lt)
         return nt * Lt (1 - par.mu) * Lt
 
