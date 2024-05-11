@@ -38,7 +38,7 @@ class Malthus():
         Bt= self.Bt(Lt)
         Dt= self.Dt(Lt)
         L= Lt + Bt + Dt
-        return L
+        return L, Yt, Bt, Dt
 
 
 
