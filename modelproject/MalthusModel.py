@@ -20,24 +20,23 @@ class Malthus():
     
     def Yt(self, Lt):
         par = self.par
-
         return par.anul-par.a* Lt
 
-    def Bt(self, Yt, Lt):
+    def Bt(self, Lt):
         par = self.par
-
+        Yt = Yt(Lt)
         return (par.bnul + par.b* Yt)* Lt
     
-    def Dt(self, Yt, Lt):
+    def Dt(self, Lt):
         par = self.par
-
+        Yt = Yt(Lt)
         return (par.dnul + par.d1* Yt)* Lt
 
     def Lt1(self, Lt):
         par = self.par
-        Yt = Yt(self, Lt)
-        Bt= Bt(self, Yt, Lt)
-        Dt= Dt(self, Yt, Lt)
+        Yt = Yt(Lt)
+        Bt= Bt(Yt, Lt)
+        Dt= Dt(Yt, Lt)
 
         return Lt + Bt + Dt
 
