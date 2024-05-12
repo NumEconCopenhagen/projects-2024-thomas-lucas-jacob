@@ -5,35 +5,6 @@ from types import SimpleNamespace
 import sympy as sm
 import numpy as np
 
-
-class Malthus_analytical():
-
-    def __init__(self):
-
-        par = self.par = SimpleNamespace()
-        par.A = sm.symbols('A')
-        par.X = sm.symbols('X')
-        par.alpha = sm.symbols('alpha')
-        par.eta = sm.symbols('eta')
-        par.L_t = sm.symbols('L_t')
-        par.mu = sm.symbols('mu')
-
-    def L_function(self):
-        par = self.par
-        Y_t = (par.A*par.X)**(1-par.alpha)*par.L_t**par.alpha
-        n_t = par.eta * Y_t/par.L_t
-        return (n_t * par.L_t) + (1-par.mu * par.L_t)
-    
-    def L_function_ss(self):
-        par = self.par
-        ss_function = sm.Eq(par.L_t, self.L_function())
-        return sm.solve(ss_function, par.L_t)[0]
-    
-    def lmb_L(self):
-        par = self.par
-        return sm.lambdify(par.A, par.X, par.alpha, par.eta, par.mu, self.L_function_ss(), 'numpy')
-
-
 class Malthus_cobbd():
 
     def __init__(self):
