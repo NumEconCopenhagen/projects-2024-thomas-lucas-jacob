@@ -1,4 +1,4 @@
-# Model analysis project
+# Ths model project is done by Thomas, Lucas and Jacob. We 
 
 Our project is titled **PROJECT TITLE** and is about EXPLAIN.
 
