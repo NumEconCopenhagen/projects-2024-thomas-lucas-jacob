@@ -11,12 +11,12 @@ class Malthus_analytical():
     def __init__(self):
 
         par = self.par = SimpleNamespace()
-        par.A = 1 #sm.symbols('A')
-        par.X = 1 #sm.symbols('X')
-        par.alpha = 0.85 #sm.symbols('alpha')
-        par.eta = 1 #sm.symbols('eta')
+        par.A = sm.symbols('A')
+        par.X = sm.symbols('X')
+        par.alpha = sm.symbols('alpha')
+        par.eta = sm.symbols('eta')
         par.L_t = sm.symbols('L_t')
-        par.mu = 1 #sm.symbols('mu')
+        par.mu = sm.symbols('mu')
 
     def L_function(self):
         par = self.par
