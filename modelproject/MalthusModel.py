@@ -6,39 +6,28 @@ import sympy as sm
 import numpy as np
 
 
-#class Malthus():
+class Malthus_analytical():
 
-    #def __init__(self):
+    def __init__(self):
 
-        #par = self.par = SimpleNamespace()
-        #par.anul = 2.5
-        #par.a = 0.05 
-        #par.bnul = 0.5
-        #par.b = 0.5
-        #par.dnul = 2.5 
-        #par.d = 2.5
+        par = self.par = SimpleNamespace()
+        par.A = sm.symbols('A')
+        par.X = sm.symbols('X')
+        par.alpha = sm.symbols('alpha')
+        par.eta = sm.symbols('eta')
+        par.L_t = sm.symbols('L_t')
+        par.mu = sm.symbols('mu')
+
+    def L_function(self):
+        par = self.par
+        Y_t = (par.A*par.X)**(1-par.alpha)*par.L_t**par.alpha
+        n_t = par.eta * Y_t/par.L_t
+        return (n_t * par.L_t) + (1-par.mu * par.L_t)
     
-    #def Yt(self, Lt):
-        #par = self.par
-        #return par.anul - par.a *Lt
-
-    #def Bt(self, Lt):
-        #par = self.par
-        #Yt = self.Yt(Lt)
-        #return (par.bnul + par.b* Yt)* Lt
-    
-    #def Dt(self, Lt):
-        #par = self.par
-        #Yt = self.Yt(Lt)
-        #return (par.dnul - par.d* Yt)* Lt
-
-    #def Lt1(self, Lt):
-        #par = self.par
-        #Yt= self.Yt(Lt)
-        #Bt= self.Bt(Lt)
-        #Dt= self.Dt(Lt)
-        #L= Lt + Bt - Dt
-        #return L, Yt, Bt, Dt
+    def L_function_ss(self):
+        par = self.par
+        ss_function = sm.Eq(par.L_t, self.L_function())
+        return sm.solve(ss_function, par.L_t)[0]
 
 
 class Malthus_cobbd():
@@ -46,7 +35,7 @@ class Malthus_cobbd():
     def __init__(self):
 
         par = self.par = SimpleNamespace()
-        par.alpha = 0.5
+        par.alpha = 0.85
         par.A = 1.5
         par.X = 1
         par.mu = 0.1
