@@ -1,12 +1,15 @@
 ##### MALTUS MODEL
 
+# We import the relevant imports
 from scipy import optimize
 from types import SimpleNamespace
 import sympy as sm
 import numpy as np
 
+# we create the model with class
 class Malthus_cobbd():
 
+    # We define the functions used in the malthus model with parameters guesses. Later you can change the parameters with a sliding scale.
     def __init__(self):
 
         par = self.par = SimpleNamespace()
