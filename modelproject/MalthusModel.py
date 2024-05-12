@@ -28,6 +28,10 @@ class Malthus_analytical():
         par = self.par
         ss_function = sm.Eq(par.L_t, self.L_function())
         return sm.solve(ss_function, par.L_t)[0]
+    
+    def lmb_L(self):
+        par = self.par
+        return sm.lambdify(par.A, par.X, par.alpha, par.eta, par.mu, self.L_function_ss(), 'numpy')
 
 
 class Malthus_cobbd():
