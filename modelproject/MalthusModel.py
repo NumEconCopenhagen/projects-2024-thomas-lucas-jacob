@@ -30,7 +30,7 @@ class Malthus_cobbd():
     def Lt1(self, Lt, eta):
         par=self.par
         nt = self.nt(eta, Lt)
-        return nt * Lt + (1 - par.mu) * Lt
+        return (nt * Lt) + ((1 - par.mu) * Lt)
 
     def ss_conditions(self, vars, eta):
         L, Y = vars
