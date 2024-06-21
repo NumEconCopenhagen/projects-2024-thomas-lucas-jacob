@@ -76,3 +76,4 @@ def quarterly_BNP_for_mov_avg():
     del BNP_quarterly_1['SÆSON'] #deletes the SÆSON column
     BNP_quarterly_sorted_1 = BNP_quarterly_1.sort_values(by= 'TID') #we sort the dataframe by year
     return BNP_quarterly_sorted_1
+    
