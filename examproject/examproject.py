@@ -7,7 +7,7 @@ class ProblemOne:
         par = self.par = SimpleNamespace()
         par.A = 1.0  # Technology parameter
         par.gamma = 0.5  # Output elasticity of labor
-        par.alpha = 0.3  # Preference parameter for good 1
+        par.alpha = 0.5  # Preference parameter for good 1
         par.nu = 1.0  # Disutility of labor parameter
         par.epsilon = 2.0  # Labor elasticity parameter
         par.tau = 0.0  # Tax rate on good 2
@@ -79,7 +79,26 @@ class ProblemOne:
         l2_star = self.labor_opt(p2, w)
         return l_star -(l1_star + l2_star)
 
+    def labor_clear_con2(self, p1, p2, w):
+        par = self.par
+        l_star = self.labor_supply_opt(w, p1, p2)
+        l1_star = self.labor_opt(p1, w)
+        l2_star = self.labor_opt(p2, w)
+        return l_star -(l1_star + l2_star)
+
     def good1_clear_con(self, p2, p1, w):
+        par = self.par
+        l_star = self.labor_supply_opt(w, p1, p2)
+        l1_star = self.labor_opt(p1, w)
+        y1_star = self.output_opt(p1, w)
+        pi1_star = self.profit(p1, y1_star, w, l1_star)
+        l2_star = self.labor_opt(p2, w)
+        y2_star = self.output_opt(p2, w)
+        pi2_star = self.profit(p2, y2_star, w, l2_star)
+        c1 = self.consumption1(w, l_star, pi1_star, pi2_star, p1, p2)
+        return y1_star - c1
+    
+    def good1_clear_con2(self, p1, p2, w):
         par = self.par
         l_star = self.labor_supply_opt(w, p1, p2)
         l1_star = self.labor_opt(p1, w)
@@ -92,6 +111,18 @@ class ProblemOne:
         return y1_star - c1
 
     def good2_clear_con(self, p2, p1, w):
+        par = self.par
+        l_star = self.labor_supply_opt(w, p1, p2)
+        l1_star = self.labor_opt(p1, w)
+        y1_star = self.output_opt(p1, w)
+        pi1_star = self.profit(p1, y1_star, w, l1_star)
+        l2_star = self.labor_opt(p2, w)
+        y2_star = self.output_opt(p2, w)
+        pi2_star = self.profit(p2, y2_star, w, l2_star)
+        c2 = self.consumption1(w, l_star, pi1_star, pi2_star, p1, p2)
+        return y2_star - c2
+    
+    def good2_clear_con2(self, p1, p2, w):
         par = self.par
         l_star = self.labor_supply_opt(w, p1, p2)
         l1_star = self.labor_opt(p1, w)
