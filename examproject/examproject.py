@@ -41,17 +41,3 @@ class problemone:
         y2 = self.output(A, l2, gamma)
         pr2 = self.profit(p2, y2, w, l2)
         return (1-alpha)*(w*l + T + pr1 + pr2)/(p2+tau)
-    
-
-
-
-
-
-
-#class problem2:
-
-
-
-
-#class problem3:
-
