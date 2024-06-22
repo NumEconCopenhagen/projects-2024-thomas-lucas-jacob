@@ -65,8 +65,8 @@ class ProblemOne:
             l2_star = self.labor_opt(p2, w)
             y2_star = self.output_opt(p2, w)
             pi2_star = self.profit(p2, y2_star, w, l2_star)
-            c1 = self.consumption1(w, l, pi1_star, pi2_star, p1)
-            c2 = self.consumption2(w, l, pi1_star, pi2_star, p2)
+            c1 = self.consumption1(w, l, pi1_star, pi2_star, p1, p2)
+            c2 = self.consumption2(w, l, pi1_star, pi2_star, p1, p2)
             return -self.utility(c1, c2, l)
         
         result = minimize_scalar(neg_utility, bounds=(0, 1e6), method='bounded')
@@ -88,7 +88,7 @@ class ProblemOne:
         l2_star = self.labor_opt(p2, w)
         y2_star = self.output_opt(p2, w)
         pi2_star = self.profit(p2, y2_star, w, l2_star)
-        c1 = self.consumption1(w, l_star, pi1_star, pi2_star, p1)
+        c1 = self.consumption1(w, l_star, pi1_star, pi2_star, p1, p2)
         return y1_star - c1
 
     def good2_clear_con(self, p2, p1, w):
@@ -100,5 +100,5 @@ class ProblemOne:
         l2_star = self.labor_opt(p2, w)
         y2_star = self.output_opt(p2, w)
         pi2_star = self.profit(p2, y2_star, w, l2_star)
-        c2 = self.consumption1(w, l_star, pi1_star, pi2_star, p2)
+        c2 = self.consumption1(w, l_star, pi1_star, pi2_star, p1, p2)
         return y2_star - c2
