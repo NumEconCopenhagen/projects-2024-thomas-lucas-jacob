@@ -1,38 +1,27 @@
 from types import SimpleNamespace
 import numpy as np
-from scipy.optimize import minimize_scalar
 
 class problem1:
 
-    def __init__(self):
-
-        par = self.par = SimpleNamespace()
-        
     def profit(p, y, w, l):
-        par=self.par
         return p*y - w*l
     
     def output(A, l, gamma):
-        par=self.par
         return A * (l**gamma)
     
     def labor_opt(p, A, gamma, w):
-        par=self.par
         x = 1/(1-gamma)
         z = (p*A*gamma)/w
         return z**x
     
     def output_opt(p, A, gamma, w):
-        par=self.par
         l = self.labor_opt(p, A, gamma, w)
         return A*(l**gamma)
     
     def utility(c1, c2, alpha, nu, l, epsilon):
-        par=self.par
         return np.log(((c1**alpha)*(c2**(1-alpha)))) - nu((l**(1+epsilon))/(1+epsilon))
     
     def consumption1(alpha, w, l, l1, l2, T, p1, p2, A, gamma):
-        par=self.par
         l1 = self.labor_opt(p1, A, gamma, w)
         y1 = self.output(A, l1, gamma)
         pr1 = self.profit(p1, y1, w, l1)
@@ -42,7 +31,6 @@ class problem1:
         return alpha*(w*l + T + pr1 + pr2)/p1
 
     def consumption2(alpha, w, l, l1, l2, T, p1, p2, A, gamma, tau):
-        par=self.par
         l1 = self.labor_opt(p1, A, gamma, w)
         y1 = self.output(A, l1, gamma)
         pr1 = self.profit(p1, y1, w, l1)
