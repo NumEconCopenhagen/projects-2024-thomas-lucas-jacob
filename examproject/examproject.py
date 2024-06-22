@@ -6,13 +6,13 @@ class ProblemOne:
 
         self.par = SimpleNamespace()
     
-    def profit(p, y, w, l):
+    def profit(self, p, y, w, l):
         return p*y - w*l
     
-    def output(A, l, gamma):
+    def output(self, A, l, gamma):
         return A * (l**gamma)
     
-    def labor_opt(p, A, gamma, w):
+    def labor_opt(self, p, A, gamma, w):
         x = 1/(1-gamma)
         z = (p*A*gamma)/w
         return z**x
@@ -21,7 +21,7 @@ class ProblemOne:
         l = self.labor_opt(p, A, gamma, w)
         return A*(l**gamma)
     
-    def utility(c1, c2, alpha, nu, l, epsilon):
+    def utility(self, c1, c2, alpha, nu, l, epsilon):
         return np.log(((c1**alpha)*(c2**(1-alpha)))) - nu((l**(1+epsilon))/(1+epsilon))
     
     def consumption1(self, alpha, w, l, l1, l2, T, p1, p2, A, gamma):
