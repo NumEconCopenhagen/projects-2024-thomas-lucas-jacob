@@ -4,7 +4,6 @@ import numpy as np
 class Problem:
 
     def __init__(self):
-
         self.par = SimpleNamespace()
     
     def profit(self, p, y, w, l):
