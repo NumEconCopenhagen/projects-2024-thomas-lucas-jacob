@@ -1,7 +1,7 @@
 from types import SimpleNamespace
 import numpy as np
 
-class problem1:
+class problemone:
     def __init__(self):
 
         self.par = SimpleNamespace()
