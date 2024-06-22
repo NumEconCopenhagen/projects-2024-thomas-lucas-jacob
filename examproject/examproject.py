@@ -21,7 +21,7 @@ class ProblemOne:
         return A*(l**gamma)
     
     def utility(self, c1, c2, alpha, nu, l, epsilon):
-        return np.log(((c1**alpha)*(c2**(1-alpha)))) - nu((l**(1+epsilon))/(1+epsilon))
+        return np.log((c1**alpha) * (c2**(1-alpha))) - nu * ((l**(1+epsilon)) / (1+epsilon))
     
     def consumption1(self, alpha, w, l, l1, l2, T, p1, p2, A, gamma):
         l1 = self.labor_opt(p1, A, gamma, w)
