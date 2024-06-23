@@ -1,5 +1,4 @@
 # Inaugural project
-# thomas-lucas-jacob
 
 **Group members:**
 - Jacob Guldager (zdj807)
