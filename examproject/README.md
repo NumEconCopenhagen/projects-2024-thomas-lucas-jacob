@@ -1,4 +1,4 @@
-# thomas-lucas-jacob
+# Exam project
 
 **Group members:**
 - Jacob Guldager (zdj807)
