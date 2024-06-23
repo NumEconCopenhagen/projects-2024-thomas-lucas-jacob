@@ -1,4 +1,4 @@
-#Group name: thomas-lucas-jacob
+# Group name: thomas-lucas-jacob
 
 **Group members:**
 - Jacob Guldager (zdj807)
