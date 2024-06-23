@@ -38,6 +38,45 @@ class Malthus_cobbd():
     def ss_conditions(self, vars, eta):
         L, Y = vars
         return [self.Yt(L) - Y, self.Lt1(L, eta) - L]
+    
+class Malthus_ext():
+    
+    # We define the functions used in the malthus model with parameters guesses. Later you can change the parameters with a sliding scale.
+    def __init__(self):
+
+        par = self.par = SimpleNamespace()
+        par.alpha = 0.85
+        par.beta = 0.1
+        par.X = 1
+        par.mu = 0.1
+        par.A0 = 1
+    
+    def At(self, Lt):
+        par = self.par
+        n_beta = -par.beta
+        return par.A0 * Lt**n_beta
+
+    def Yt(self, Lt):
+        par=self.par
+        A = self.At(Lt)
+        return ((A*par.X)**(1- par.alpha))*(Lt**par.alpha)
+    
+    def yt(self, Lt):
+        Yt = self.Yt(Lt)
+        return Yt/Lt
+
+    def nt(self, eta, Lt):
+        yt = self.yt(Lt)
+        return eta * yt
+    
+    def Lt1(self, Lt, eta):
+        par=self.par
+        nt = self.nt(eta, Lt)
+        return (nt * Lt) + ((1 - par.mu) * Lt)
+
+    def ss_conditions(self, vars, eta):
+        L, Y = vars
+        return [self.Yt(L) - Y, self.Lt1(L, eta) - L]
 
     
 
