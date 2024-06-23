@@ -157,3 +157,16 @@ class ProblemOne:
     def neq_SWF(self, vars): # negative SWF to be used in optimization.
         par = self.par
         return -self.SWF(vars)
+
+class ProblemThree:
+
+    # We now define the points A,B,C and D:
+    # We use "np.linalg.norm(x - y)" as it is the same as writing the Euclidean distance between two points. 
+    # So the Euclidean in the functions, we instead compute using numpy.
+    def points(X, y):
+        A = min((x for x in X if x[0] > y[0] and x[1] > y[1]), key=lambda x: np.linalg.norm(x - y), default=np.array([np.nan, np.nan]))
+        B = min((x for x in X if x[0] > y[0] and x[1] < y[1]), key=lambda x: np.linalg.norm(x - y), default=np.array([np.nan, np.nan]))
+        C = min((x for x in X if x[0] < y[0] and x[1] < y[1]), key=lambda x: np.linalg.norm(x - y), default=np.array([np.nan, np.nan]))
+        D = min((x for x in X if x[0] < y[0] and x[1] > y[1]), key=lambda x: np.linalg.norm(x - y), default=np.array([np.nan, np.nan]))
+        return A, B, C, D
+
