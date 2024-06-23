@@ -37,7 +37,7 @@ class ProblemOne:
         l = self.labor_opt(p)
         return par.A*(l**par.gamma)
     
-    def profit_opt(self, p):
+    def profit_opt(self, p): #firms optimal profit definition
         par = self.par
         l = self.labor_opt(p)
         c = (1 - par.gamma) / par.gamma
@@ -69,7 +69,7 @@ class ProblemOne:
         result = minimize_scalar(neg_utility, bounds=(0, 1e6), method='bounded') #maximizing utility function by minimizing the negative utility function
         return result.x #returns the labor l which maximises utility
     
-    def market_clearing_errors(self, p1, p2):
+    def market_clearing_errors(self, p1, p2): #defining the market clearing errors (clearing condition difference from 0)
         par=self.par
         l_star = self.labor_supply_opt(p1, p2)
         l1_star = self.labor_opt(p1)
@@ -85,7 +85,7 @@ class ProblemOne:
 
         return [labor, good1, good2]
 
-    def market_clearing_l_1(self, vars):
+    def market_clearing_l_1(self, vars): # defining market clearing errors for labor- and good 1 market. To be used for equilibrium optimization
         p1, p2 = vars
         par=self.par
         l_star = self.labor_supply_opt(p1, p2)
@@ -98,7 +98,7 @@ class ProblemOne:
         good1 = y1_star - c1
         return [labor, good1]
     
-    def market_clearing_l_2(self, vars):
+    def market_clearing_l_2(self, vars): # defining market clearing errors for labor- and good 2 market. To be used for equilibrium optimization
         p1, p2 = vars
         par=self.par
         l_star = self.labor_supply_opt(p1, p2)
@@ -112,7 +112,7 @@ class ProblemOne:
 
         return [labor, good2]
     
-    def market_clearing_1_2(self, vars):
+    def market_clearing_1_2(self, vars): # defining market clearing errors for good 1- and good 2 market. To be used for equilibrium optimization
         p1, p2 = vars
         par=self.par
         l_star = self.labor_supply_opt(p1, p2)
@@ -125,10 +125,10 @@ class ProblemOne:
 
         return [good1, good2]
     
-    def labor_supply_opt_t(self, tau, p1, p2): #maximizing the labor supply
+    def labor_supply_opt_t(self, tau, p1, p2): #maximizing the labor supply tau variable
         def neg_utility(l): #negative utility function, for maximization of utility
             par = self.par
-            T = tau / self.output_opt(p2)
+            T = tau / self.output_opt(p2) #T as a function of tau and consumption of y2
             pr1 = self.profit_opt(p1)
             pr2 = self.profit_opt(p2)
             c1 = par.alpha*(par.w*l + T + pr1 + pr2)/p1
@@ -138,10 +138,10 @@ class ProblemOne:
         result = minimize_scalar(neg_utility, bounds=(0, 1e6), method='bounded') #maximizing utility function by minimizing the negative utility function
         return result.x #returns the labor l which maximises utility
     
-    def SWF(self, vars):
+    def SWF(self, vars): #defining Social Welfare Function, variable on tau and product prices
         tau, p1, p2 = vars
         par = self.par
-        T = tau / self.output_opt(p2)
+        T = tau / self.output_opt(p2) #T as a function of tau and consumption of y2
         pr1 = self.profit_opt(p1)
         pr2 = self.profit_opt(p2)
         l = self.labor_supply_opt_t(tau, p1, p2)
@@ -154,6 +154,6 @@ class ProblemOne:
 
         return U - par.kappa * y2_star
     
-    def neq_SWF(self, vars):
+    def neq_SWF(self, vars): # negative SWF to be used in optimization.
         par = self.par
         return -self.SWF(vars)
