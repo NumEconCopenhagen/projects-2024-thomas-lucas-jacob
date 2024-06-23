@@ -3,6 +3,7 @@ import numpy as np
 from scipy.optimize import minimize_scalar
 
 class ProblemOne:
+    ####### Class for Problem 1, question 1 to 3 #######
     def __init__(self):
         par = self.par = SimpleNamespace()
 
