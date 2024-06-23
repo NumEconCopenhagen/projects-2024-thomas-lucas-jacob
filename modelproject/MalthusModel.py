@@ -46,7 +46,7 @@ class Malthus_ext():
 
         par = self.par = SimpleNamespace()
         par.alpha = 0.85
-        par.beta = 0.1
+        par.beta = 0.01
         par.X = 1
         par.mu = 0.1
         par.A0 = 1
