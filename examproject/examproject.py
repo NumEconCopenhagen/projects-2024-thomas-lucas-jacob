@@ -45,7 +45,7 @@ class ProblemOne:
     
     def utility(self, c1, c2, l): #Consumers utility function
         par = self.par
-        return np.log((c1**par.alpha) * (c2**(1-par.alpha))) - par.nu * ((l**(1+par.epsilon)) / (1+par.epsilon))
+        return np.log((c1**par.alpha) * (c2**(1-par.alpha))) - (par.nu * ((l**(1+par.epsilon)) / (1+par.epsilon)))
     
     def consumption1(self, l, p1, p2): #demand for good 1 / consumption of good 1
         par = self.par
